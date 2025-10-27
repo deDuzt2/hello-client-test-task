@@ -14,7 +14,7 @@ function Router() {
           <Route path={RouterLinks.MenuItem1} element={<ItemPage id={1} />} />
           <Route path={RouterLinks.MenuItem2} element={<ItemPage id={2} />} />
           <Route path={RouterLinks.MenuItem3} element={<ItemPage id={3} />} />
-          <Route path={RouterLinks.MenuItem4} element={<ItemPage id={3} />}>
+          <Route path={RouterLinks.MenuItem4} element={<ItemPage id={4} />}>
             <Route
               path={RouterLinks.MenuItem4 + RouterLinks.ChildrenItem1}
               element={<ChildrenPage id={1} />}
