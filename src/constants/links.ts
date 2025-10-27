@@ -1,0 +1,15 @@
+export enum RouterLinks {
+  Home = "/",
+  MenuItem1 = "/menu-item-1",
+  MenuItem2 = "/menu-item-2",
+  MenuItem3 = "/menu-item-3",
+  MenuItem4 = "/menu-item-4",
+  MenuItem5 = "/menu-item-5",
+  MenuItem6 = "/menu-item-6",
+  MenuItem7 = "/menu-item-7",
+  MenuItem8 = "/menu-item-8",
+  ChildrenItem1 = "/children-item-1",
+  ChildrenItem2 = "/children-item-2",
+  ChildrenItem3 = "/children-item-3",
+  ChildrenItem4 = "/children-item-4",
+}
