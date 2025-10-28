@@ -16,19 +16,19 @@ function Router() {
           <Route path={RouterLinks.MenuItem3} element={<ItemPage id={3} />} />
           <Route path={RouterLinks.MenuItem4} element={<ItemPage id={4} />}>
             <Route
-              path={RouterLinks.MenuItem4 + RouterLinks.ChildrenItem1}
+              path={RouterLinks.ChildrenItem1}
               element={<ChildrenPage id={1} />}
             />
             <Route
-              path={RouterLinks.MenuItem4 + RouterLinks.ChildrenItem2}
+              path={RouterLinks.ChildrenItem2}
               element={<ChildrenPage id={2} />}
             />
             <Route
-              path={RouterLinks.MenuItem4 + RouterLinks.ChildrenItem3}
+              path={RouterLinks.ChildrenItem3}
               element={<ChildrenPage id={3} />}
             />
             <Route
-              path={RouterLinks.MenuItem4 + RouterLinks.ChildrenItem4}
+              path={RouterLinks.ChildrenItem4}
               element={<ChildrenPage id={4} />}
             />
           </Route>

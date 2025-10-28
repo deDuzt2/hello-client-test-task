@@ -5,11 +5,10 @@ import { Button, ButtonLink } from "../../../component/Button/Button";
 import Sidebar from "../../../component/Sidebar";
 import AlignLeft from "../../../assets/svg/align-left.svg";
 import Dropdown from "../../../component/Dropdown";
-import { useLocation } from "react-router-dom";
+import { useActivePage } from "../../../hooks/useActivePage";
 
-function NavigationBar() {
-  const location = useLocation();
-  const findActiveElement = (url: string) => location.pathname.startsWith(url);
+function DesktopNavigationBar() {
+  const activePage = useActivePage();
   return (
     <Sidebar defaultState={true}>
       {({ isOpen, handleChange }) => (
@@ -18,17 +17,14 @@ function NavigationBar() {
         >
           <div>
             {menu.map(({ label, icon: Icon, link, children }, index) => {
-              if (children) {
+              if (children && children.length) {
                 return isOpen ? (
                   <Collapse
                     key={index}
                     button={
                       <Button
                         key={index}
-                        className="flex pl-[20px] h-[40px] relative whitespace-nowrap hover:opacity-70"
-                        style={{
-                          color: findActiveElement(link) ? "red" : "white",
-                        }}
+                        className={`flex pl-[20px] relative ${activePage.startsWith(link) ? "text-red-500" : "text-white"}`}
                       >
                         <Icon
                           width={16}
@@ -38,18 +34,13 @@ function NavigationBar() {
                         {isOpen ? label : ""}
                       </Button>
                     }
-                    defaultState={findActiveElement(link)}
+                    defaultState={activePage.startsWith(link)}
                   >
-                    {children.map(({ label, link: childrenLink }, index) => (
+                    {children.map(({ label, link }, index) => (
                       <ButtonLink
                         key={index}
-                        to={link + childrenLink}
-                        className={`flex pl-[20px] h-[40px] relative whitespace-nowrap hover:opacity-70`}
-                        style={{
-                          color: findActiveElement(link + childrenLink)
-                            ? "red"
-                            : "white",
-                        }}
+                        to={link}
+                        className={`flex pl-[20px] relative ${activePage.startsWith(link) ? "text-red-500" : "text-white"}`}
                       >
                         {isOpen ? label : ""}
                       </ButtonLink>
@@ -60,10 +51,7 @@ function NavigationBar() {
                     button={
                       <Button
                         key={index}
-                        className="flex pl-[20px] h-[40px] relative whitespace-nowrap hover:opacity-70"
-                        style={{
-                          color: findActiveElement(link) ? "red" : "white",
-                        }}
+                        className={`flex pl-[20px] relative ${activePage.startsWith(link) ? "text-red-500" : "text-white"}`}
                       >
                         <Icon
                           width={16}
@@ -74,16 +62,11 @@ function NavigationBar() {
                       </Button>
                     }
                   >
-                    {children.map(({ label, link: childrenLink }, index) => (
+                    {children.map(({ label, link }, index) => (
                       <ButtonLink
                         key={index}
-                        to={link + childrenLink}
-                        className={`flex pl-[20px] h-[40px] relative whitespace-nowrap hover:opacity-70`}
-                        style={{
-                          color: findActiveElement(link + childrenLink)
-                            ? "red"
-                            : "white",
-                        }}
+                        to={link}
+                        className={`flex pl-[20px] relative ${activePage.startsWith(link) ? "text-red-500" : "text-white"}`}
                       >
                         {label}
                       </ButtonLink>
@@ -96,8 +79,7 @@ function NavigationBar() {
                 <ButtonLink
                   key={index}
                   to={link}
-                  className={`flex pl-[20px] h-[40px] relative whitespace-nowrap hover:opacity-70`}
-                  style={{ color: findActiveElement(link) ? "red" : "white" }}
+                  className={`flex pl-[20px] relative ${activePage.startsWith(link) ? "text-red-500" : "text-white"}`}
                 >
                   <Icon
                     width={16}
@@ -110,10 +92,7 @@ function NavigationBar() {
             })}
           </div>
 
-          <Button
-            onClick={handleChange}
-            className="flex pl-[20px] h-[40px] relative whitespace-nowrap text-white hover:opacity-70"
-          >
+          <Button onClick={handleChange} className="flex pl-[20px] relative">
             <AlignLeft
               width={16}
               height={16}
@@ -127,4 +106,4 @@ function NavigationBar() {
   );
 }
 
-export default NavigationBar;
+export default DesktopNavigationBar;

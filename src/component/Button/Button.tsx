@@ -9,7 +9,7 @@ export type ButtonLinkProps = Omit<
 > &
   LinkProps;
 
-const commonClass = "p-[10px]";
+const commonClass = "h-[40px] p-[10px] whitespace-nowrap hover:opacity-70";
 
 export function Button({ children, className, ...props }: ButtonProps) {
   const currentClass = `${commonClass} ${className}`;

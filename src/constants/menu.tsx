@@ -9,12 +9,12 @@ import CameraIcon from "../assets/svg/camera.svg";
 import { RouterLinks } from "./links";
 import type { FC, SVGProps } from "react";
 
-interface ChildrenItem {
+export interface ChildrenItem {
   label: string;
   link: RouterLinks;
 }
 
-interface MenuItemType {
+export interface MenuItemType {
   label: string;
   link: RouterLinks;
   icon: FC<SVGProps<SVGSVGElement>>;
