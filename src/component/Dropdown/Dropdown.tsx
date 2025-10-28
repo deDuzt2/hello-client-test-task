@@ -20,7 +20,7 @@ function Dropdown({ button, children, className }: SidebarDropdownProps) {
       const rect = btnRef.current.getBoundingClientRect();
       setCoords({
         top: rect.top,
-        left: rect.right + 4, // немного отступаем вправо
+        left: rect.right + 10,
       });
     }
   }, [isOpen]);
@@ -36,7 +36,7 @@ function Dropdown({ button, children, className }: SidebarDropdownProps) {
 
   const menuContent = (
     <div
-      className={`fixed bg-gray-700 rounded-lg py-1 shadow-lg z-[9999] ${className}`}
+      className={`fixed bg-gray-700 rounded-lg py-1 z-[9999] ${className}`}
       style={{
         top: coords.top,
         left: coords.left,

@@ -12,9 +12,8 @@ export type ButtonLinkProps = Omit<
 const commonClass = "h-[40px] p-[10px] whitespace-nowrap hover:opacity-70";
 
 export function Button({ children, className, ...props }: ButtonProps) {
-  const currentClass = `${commonClass} ${className}`;
   return (
-    <button className={currentClass} {...props}>
+    <button className={`${commonClass} ${className}`} {...props}>
       {children}
     </button>
   );
@@ -26,9 +25,8 @@ export function ButtonLink({
   to,
   ...props
 }: ButtonLinkProps) {
-  const currentClass = `${commonClass} ${className}`;
   return (
-    <Link to={to} className={currentClass} {...props}>
+    <Link to={to} className={`${commonClass} ${className}`} {...props}>
       {children}
     </Link>
   );

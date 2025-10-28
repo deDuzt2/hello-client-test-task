@@ -19,6 +19,7 @@ function DesktopNavigationBar() {
             {menu.map(({ label, icon: Icon, link, children }, index) => {
               if (children && children.length) {
                 return isOpen ? (
+                  // Используем компонент Collapse в случае, когда есть дочерние компоненты при isOpen === true
                   <Collapse
                     key={index}
                     button={
@@ -47,6 +48,7 @@ function DesktopNavigationBar() {
                     ))}
                   </Collapse>
                 ) : (
+                  // Используем компонент Dropdown в случае, когда есть дочерние компоненты при isOpen === false
                   <Dropdown
                     button={
                       <Button
@@ -74,7 +76,7 @@ function DesktopNavigationBar() {
                   </Dropdown>
                 );
               }
-
+              // Просто ссылка, когда нет дочерних компонентов
               return (
                 <ButtonLink
                   key={index}

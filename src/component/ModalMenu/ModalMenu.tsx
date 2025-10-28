@@ -10,11 +10,10 @@ interface ModalMenuProps {
 function ModalMenu({ title, onClose, children }: ModalMenuProps) {
   if (typeof document === "undefined") return null;
 
-  // Вешаем закрытие модалки при клике на крестик или вне модалки
   return createPortal(
     <div
       className="fixed inset-0 z-50 flex flex-col bg-black/40 backdrop-blur-sm"
-      onClick={onClose}
+      onClick={onClose} // Вешаем закрытие модалки при клике на крестик или вне модалки
     >
       <div
         className="bg-gray-500 rounded-t-2xl mt-auto p-4 max-h-[70vh] overflow-y-auto shadow-lg animate-slideUp"
