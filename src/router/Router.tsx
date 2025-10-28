@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import Layout from "./../layout";
 import { RouterLinks } from "../constants/links";
@@ -7,7 +7,7 @@ import ChildrenPage from "../pages/ChildrenPage";
 
 function Router() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route element={<Layout />}>
           <Route path={RouterLinks.Home} element={<HomePage />} />
@@ -38,7 +38,7 @@ function Router() {
           <Route path={RouterLinks.MenuItem8} element={<ItemPage id={8} />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
