@@ -18,5 +18,5 @@ export default defineConfig({
       include: "**/*.svg",
     }),
   ],
-  base: "./",
+  base: "/hello-client-test-task/",
 });
